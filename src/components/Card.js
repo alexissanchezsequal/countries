@@ -4,10 +4,10 @@ const Card = ({ data, id }) => {
     <>
       <div className="card">
         <div className="card-image">
-          <img src={data?.flags?.png} alt={data?.name?.official} />
+          <img src={data?.flags?.png} alt={data?.name?.common} />
         </div>
         <div className="card-content">
-          <span className="card-name">{data?.name?.official}</span>
+          <span className="card-name">{data?.name?.common}</span>
           <ol className="card-list">
             <li>
               <span className="card-sub">Population: </span>

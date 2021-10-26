@@ -15,8 +15,7 @@ const Home = () => {
   const { isLoading, isError, isSuccess } = useQuery("ALL", getAllCountries, {
     onSuccess: (data) => {
       setList(data)
-    },
-    retry: false
+    }
   })
 
   const filterList = (items) => {
@@ -39,7 +38,7 @@ const Home = () => {
     return <h1>Loading...</h1>
   } else if (isError) {
     return <p>Error connecting to country api</p>
-  } else if (isSuccess) {
+  } else {
     return (
       <>
         <div className="search-wrapper">
@@ -86,7 +85,6 @@ const Home = () => {
       </>
     )
   }
-  return null
 }
 
 export default Home
