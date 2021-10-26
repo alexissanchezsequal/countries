@@ -1,7 +1,10 @@
-import React from "react"
+import React, { Suspense, lazy } from "react"
 import ReactDOM from "react-dom"
 import "./sass/index.scss"
-import App from "./App"
+// ** Lazy load app
+const LazyApp = lazy(() => import("./App"))
+// ** React Query
+import { QueryClient, QueryClientProvider } from "react-query"
 import reportWebVitals from "./reportWebVitals"
 import WebFont from "webfontloader"
 WebFont.load({
@@ -10,9 +13,21 @@ WebFont.load({
   }
 })
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }
+})
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <Suspense fallback={"Loading..."}>
+        <LazyApp />
+      </Suspense>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 )
