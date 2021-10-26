@@ -12,59 +12,59 @@ const Country = ({ data }) => {
     return result
   }
   return (
-    <>
-      <article>
-        <aside className="article-flag">
-          <img src={data?.flags?.png} alt={data?.name?.common} />
-        </aside>
-        <div className="article-main">
-          <h3>{data?.name?.common}</h3>
-          <div className="flex f-btw">
-            <div className="row">
-              <ol className="items">
-                <li>
-									Native Name: <span>{data?.name?.common}</span>
-                </li>
-                <li>
-									Population: <span>{data?.population}</span>
-                </li>
-                <li>
-									Region: <span>{data?.region}</span>
-                </li>
-                <li>
-									Sub Region: <span>{data?.subregion}</span>
-                </li>
-                <li>
-									Capital:{" "}
-                  <span>
-                    {data?.capital?.length > 0 ? data?.capital[0] : "N/A"}
-                  </span>
-                </li>
-              </ol>
-            </div>
-            <div className="last-row">
-              <ol className="items">
-                <li>
-									Top Level Domain:{" "}
-                  <span>{data?.tld?.length > 0 ? data?.tld[0] : "N/A"}</span>
-                </li>
-                <li>
-									Currencies:{" "}
-                  <span>
-                    {json2array(data?.currencies).map(
-                      (items) => `${items.name}, `
-                    )}
-                  </span>
-                </li>
-                <li>
-									Languages:{" "}
-                  <span>
-                    {json2array(data?.languages).map((items) => `${items}, `)}
-                  </span>
-                </li>
-              </ol>
-            </div>
+    <article className="marginBtm">
+      <aside className="article-flag">
+        <img src={data?.flags?.png} alt={data?.name?.common} />
+      </aside>
+      <div className="article-main">
+        <h3>{data?.name?.common}</h3>
+        <div className="flex f-btw">
+          <div className="row">
+            <ol className="items">
+              <li>
+								Native Name: <span>{data?.name?.common}</span>
+              </li>
+              <li>
+								Population: <span>{data?.population}</span>
+              </li>
+              <li>
+								Region: <span>{data?.region}</span>
+              </li>
+              <li>
+								Sub Region: <span>{data?.subregion}</span>
+              </li>
+              <li>
+								Capital:{" "}
+                <span>
+                  {data?.capital?.length > 0 ? data?.capital[0] : "N/A"}
+                </span>
+              </li>
+            </ol>
           </div>
+          <div className="last-row">
+            <ol className="items">
+              <li>
+								Top Level Domain:{" "}
+                <span>{data?.tld?.length > 0 ? data?.tld[0] : "N/A"}</span>
+              </li>
+              <li>
+								Currencies:{" "}
+                <span>
+                  {json2array(data?.currencies).map(
+                    (items) => `${items.name}, `
+                  )}
+                </span>
+              </li>
+              <li>
+								Languages:{" "}
+                <span>
+                  {json2array(data?.languages).map((items) => `${items}, `)}
+                </span>
+              </li>
+            </ol>
+          </div>
+        </div>
+        {data?.borders.length > 0 && (
           <div className="article-end">
             <h4>Border Countries: </h4>
             {data?.borders?.map((item) => (
@@ -73,9 +73,9 @@ const Country = ({ data }) => {
               </Link>
             ))}
           </div>
-        </div>
-      </article>
-    </>
+        )}
+      </div>
+    </article>
   )
 }
 

@@ -14,7 +14,7 @@ const Header = () => {
         <h1>Where in the world?</h1>
         <Buttom
           icon={icon}
-          title={`${skin} Mode`}
+          title={`${skin !== null ? skin : "Light"} Mode`}
           className="theme-btn"
           onclick={() => setSkin(skin === "Dark" ? "Light" : "Dark")}
         />
